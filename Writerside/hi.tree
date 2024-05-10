@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+
+<instance-profile id="hi"
+                 name="Tangwai Salice"
+                 start-page="Perpetus Modulus Columus.md">
+
+    <toc-element topic="Perpetus Modulus Columus.md"/>
+    <toc-element topic="planing.md"/>
+    <toc-element topic="in-building room universal sensor unit.md"/>
+</instance-profile>
