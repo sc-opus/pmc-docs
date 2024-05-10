@@ -3,8 +3,8 @@
 ```mermaid
 flowchart TB
 
-
-BWF -->|dep| BWFLM(Layout Manager)
+NGINX -->|web| BWF
+BWF[Base Web Frontend] -->|dep| BWFLM(Layout Manager)
 BWFLM -->|event| BWFLCCC(Layout config cache)
 BWFLM -->|dep| BWFCM(Component Manager)
 BWFCM -->|event| BWFCMCC(Component config cache)
@@ -16,14 +16,15 @@ BWFCDPU -->|response| BWFCDP
 
 BWFCDPU -->|api| LHAGWIDATAE{Обнаружено Local host AGW?}
 LHAGWIDATAE -->|Yes| LHAGW[Local host AGW]
-LHAGW --> AGW
+LHAGW --> NGINX
 LHAGWIDATAE -->|No| OAGWIDATAE{Обнаружено корпоративное AGW?}
 OAGWIDATAE -->|Yes| OAGW[Org AGW]
-OAGW --> AGW
+OAGW --> NGINX
 OAGWIDATAE -->|No| isDomainAGW{Обнаружено core доменное AGW?}
 isDomainAGW -->|Yes| DomainAGW
 isDomainAGW -->|No. return Err| BWFCDPU
-DomainAGW --> AGW
+DomainAGW --> NGINX
+NGINX --> AGW
 
 
 AGW -->|Logging API| LoggingKafka(Kafka)
